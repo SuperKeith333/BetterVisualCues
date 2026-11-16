@@ -1,0 +1,24 @@
+using System;
+using System.Linq;
+using System.Reflection;
+using BetterVisualCues;
+using HarmonyLib;
+using UnityEngine;
+
+[HarmonyPatch(typeof(Item), "FinishCastPrimary")]
+static class ItemUsedPatch
+{
+    static void Postfix(Item __instance)
+    {
+        Assembly assembly = Assembly.GetExecutingAssembly();
+
+        ItemPatch? patch = assembly.GetTypes()
+            .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(ItemPatch)))
+            .Select(type => Activator.CreateInstance(type))
+            .Cast<ItemPatch>()
+            .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
+
+        if (patch != null)
+            patch.UsedFinished(__instance);
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "BetterVisualCues",
+  "version_number": "0.1.0",
+  "website_url": "https://peakmodding.github.io",
+  "description": "A visual enhancement mod for PEAK animations for tem usage through model switching.",
+  "dependencies": [
+    "BepInEx-BepInExPack_PEAK-5.4.75301"
+  ]
+}
