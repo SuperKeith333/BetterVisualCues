@@ -1,3 +1,4 @@
+using BetterVisualCues;
 using UnityEngine;
 
 public class AirlinefoodPatch : ItemPatch
@@ -10,28 +11,35 @@ public class AirlinefoodPatch : ItemPatch
             MeshRegistry.SetOriginal("Airline Food", __instance.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh);
     }
 
-    public override void BeingUsed(Item __instance)
+    public override void AnimationUpdated(string emoteName, CharacterAnimations __instance)
     {
-        if (__instance.castProgress > 0.25f && __instance.transform.Find("airplane food (1)/plastic").gameObject.activeInHierarchy)
+        if (emoteName == "A_Scout_Land")
         {
-            __instance.transform.Find("airplane food (1)/plastic").gameObject.SetActive(false);
-        }                
-        if (__instance.castProgress > 0.50f && __instance.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Airlinefood_Eat_2"))
-        {
-            __instance.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Airlinefood_Eat_2");
-            __instance.transform.Find("airplane food (1)").localRotation = Quaternion.Euler(270.41f, 0, 0);
-        }              
-        if (__instance.castProgress > 0.75f && __instance.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Airlinefood_Eat_3"))
-        {
-            __instance.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Airlinefood_Eat_3");
-            __instance.transform.Find("airplane food (1)").localRotation = Quaternion.Euler(270.41f, 0, 0);
+            PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)/plastic").gameObject.SetActive(true);
+            PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Airline Food");
+            PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").localRotation = Quaternion.Euler(323.41f, 180, 90);
         }
     }
 
-    public override void CancelUsed(Item __instance)
+    public override void AnimationTick()
     {
-        __instance.transform.Find("airplane food (1)/plastic").gameObject.SetActive(true);
-        __instance.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Airline Food");
-        __instance.transform.Find("airplane food (1)").localRotation = Quaternion.Euler(323.41f, 180, 90);
+        if (PlayRemoveAnimationPatch.anim == "A_Scout_Use_Item")
+        {
+            float progress = 1f / (1.2f / PlayRemoveAnimationPatch.animTime);
+            if (progress > 0.25f && PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)/plastic").gameObject.activeInHierarchy == true)
+            {
+                PlayRemoveAnimationPatch.item.transform.Find("airplane food (1)/plastic").gameObject.SetActive(false);
+            }                
+            if (progress > 0.50f && PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Airlinefood_Eat_2"))
+            {
+                PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Airlinefood_Eat_2");
+                PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").localRotation = Quaternion.Euler(270.41f, 0, 0);
+            }              
+            if (progress > 0.75f && PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Airlinefood_Eat_3"))
+            {
+                PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Airlinefood_Eat_3");
+                PlayRemoveAnimationPatch.item?.transform.Find("airplane food (1)").localRotation = Quaternion.Euler(270.41f, 0, 0);
+            }
+        }
     }
 }

@@ -65,6 +65,8 @@ public class AntiZookaPatch : ItemPatch
                 newAntiSphere.name = "AmmoSphere";
             }
         }
+
+       __instance.view.RPC("SetItemInstanceDataRPC", Photon.Pun.RpcTarget.Others, __instance.data);
     }
 
     public override void ItemDataUpdate(ItemInstanceData instanceData, Item __instance)

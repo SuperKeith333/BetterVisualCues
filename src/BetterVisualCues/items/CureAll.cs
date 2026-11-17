@@ -34,7 +34,9 @@ public class CureAllPatch : ItemPatch
                 __instance.transform.Find("Jug/Jug (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("CureAll_1_Use");
                 __instance.transform.Find("Jug/Jug (1)").localPosition = new Vector3(0, 0, -1);
             }
-            }
+        }
+
+        __instance.view.RPC("SetItemInstanceDataRPC", Photon.Pun.RpcTarget.Others, __instance.data);
     }    
 
     public override void ItemDataUpdate(ItemInstanceData instanceData, Item __instance)

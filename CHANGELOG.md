@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.1]
+
+- Added support for networked animations (not feeding eachother)
+
 ## [0.1.0] - Initial Release
 
 ### Added

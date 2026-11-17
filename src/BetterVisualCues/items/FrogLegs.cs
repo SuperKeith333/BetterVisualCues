@@ -10,16 +10,23 @@ public class FrogLegs : ItemPatch
             MeshRegistry.SetOriginal("Frog Legs", __instance.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh);
     }
 
-    public override void BeingUsed(Item __instance)
+    public override void AnimationUpdated(string emoteName, CharacterAnimations __instance)
     {
-        if (__instance.castProgress > 0.5f &&  __instance.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Frog_Legs_Eat_2"))
+        if (emoteName == "A_Scout_Land")
         {
-            __instance.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Frog_Legs_Eat_2");
+            PlayRemoveAnimationPatch.item?.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Frog Legs");
         }
     }
 
-    public override void CancelUsed(Item __instance)
+    public override void AnimationTick()
     {
-        __instance.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Frog Legs");
+        if (PlayRemoveAnimationPatch.anim == "A_Scout_Use_Item")
+        {
+            float progress = 1f / (1.2f / PlayRemoveAnimationPatch.animTime);
+            if (progress > 0.5f && PlayRemoveAnimationPatch.item?.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Frog_Legs_Eat_2"))
+            {
+                PlayRemoveAnimationPatch.item?.transform.Find("FrogLegs (1)/FrogLegsGreen").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Frog_Legs_Eat_2");
+            }
+        }
     }
 }

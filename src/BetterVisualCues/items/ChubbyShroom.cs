@@ -10,16 +10,23 @@ public class ChubbyShroom : ItemPatch
             MeshRegistry.SetOriginal("Chubby Shroom", __instance.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh);
     }
 
-    public override void BeingUsed(Item __instance)
+    public override void AnimationUpdated(string emoteName, CharacterAnimations __instance)
     {
-        if (__instance.castProgress > 0.5f &&  __instance.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Chubby_Shroom_Eat_2"))
+        if (emoteName == "A_Scout_Land")
         {
-            __instance.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Chubby_Shroom_Eat_2");
+            PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Chubby Shroom");
         }
     }
 
-    public override void CancelUsed(Item __instance)
+    public override void AnimationTick()
     {
-        __instance.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Chubby Shroom");
+        if (PlayRemoveAnimationPatch.anim == "A_Scout_Use_Item")
+        {
+            float progress = 1f / (1.2f / PlayRemoveAnimationPatch.animTime);
+            if (progress > 0.5f &&  PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Chubby_Shroom_Eat_2"))
+            {
+                PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Chubby").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Chubby_Shroom_Eat_2");
+            }
+        }
     }
 }

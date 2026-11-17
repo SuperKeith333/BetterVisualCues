@@ -1,8 +1,8 @@
 {
   "name": "BetterVisualCues",
-  "version_number": "0.1.0",
+  "version_number": "0.1.1",
   "website_url": "https://github.com/SuperKeith333/BetterVisualCues",
-  "description": "A visual enhancement mod for PEAK animations for tem usage through model switching.",
+  "description": "A visual enhancement mod for PEAK animations for item usage through model switching.",
   "dependencies": [
     "BepInEx-BepInExPack_PEAK-5.4.75301"
   ]

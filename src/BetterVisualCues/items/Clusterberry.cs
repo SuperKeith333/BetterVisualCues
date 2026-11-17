@@ -11,34 +11,41 @@ public class ClusterberryPatch : ItemPatch
                 MeshRegistry.SetOriginal("Clusterberry", __instance.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh);
             } else
             {
-                MeshRegistry.SetOriginal("Clusterberry", __instance.transform.Find("Raspberry)").GetComponent<MeshFilter>().sharedMesh);
+                MeshRegistry.SetOriginal("Clusterberry", __instance.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh);
             }
         }
     }
 
-    public override void BeingUsed(Item __instance)
+    public override void AnimationUpdated(string emoteName, CharacterAnimations __instance)
     {
-        if (!__instance.name.Contains("Red")) {
-            if (__instance.castProgress > 0.50f && __instance.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("ClusterBerry_Eat_2"))
-            {
-                 __instance.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("ClusterBerry_Eat_2");
-            } 
-        } else
+        if (emoteName == "A_Scout_Land")
         {
-            if (__instance.castProgress > 0.50f && __instance.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("ClusterBerry_Eat_2"))
+            if (PlayRemoveAnimationPatch.item?.name.Contains("Red") == false) {
+                PlayRemoveAnimationPatch.item?.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Clusterberry");
+            } else
             {
-                __instance.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("ClusterBerry_Eat_2");
-            } 
+                PlayRemoveAnimationPatch.item?.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Clusterberry");  
+            }
         }
     }
 
-    public override void CancelUsed(Item __instance)
+    public override void AnimationTick()
     {
-        if (!__instance.name.Contains("Red")) {
-            __instance.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Clusterberry");
-        } else
+        if (PlayRemoveAnimationPatch.anim == "A_Scout_Use_Item")
         {
-            __instance.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Clusterberry");  
+            float progress = 1f / (1.2f / PlayRemoveAnimationPatch.animTime);
+            if (PlayRemoveAnimationPatch.item?.name.Contains("Red") == false) {
+                if (progress > 0.50f && PlayRemoveAnimationPatch.item?.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("ClusterBerry_Eat_2"))
+                {
+                    PlayRemoveAnimationPatch.item?.transform.Find("Cluster Berry (1)").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("ClusterBerry_Eat_2");
+                } 
+            } else
+            {
+                if (progress > 0.50f && PlayRemoveAnimationPatch.item?.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("ClusterBerry_Eat_2"))
+                {
+                    PlayRemoveAnimationPatch.item?.transform.Find("Raspberry").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("ClusterBerry_Eat_2");
+                } 
+            }
         }
     }
 }

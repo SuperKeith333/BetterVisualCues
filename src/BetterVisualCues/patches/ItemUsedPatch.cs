@@ -10,6 +10,9 @@ static class ItemUsedPatch
 {
     static void Postfix(Item __instance)
     {
+        if (!__instance.holderCharacter.IsLocal)
+            return;
+
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         ItemPatch? patch = assembly.GetTypes()

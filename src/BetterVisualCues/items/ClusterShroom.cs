@@ -10,20 +10,27 @@ public class ClusterShroom : ItemPatch
             MeshRegistry.SetOriginal("Cluster Shroom", __instance.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh);
     }
 
-    public override void BeingUsed(Item __instance)
+    public override void AnimationUpdated(string emoteName, CharacterAnimations __instance)
     {
-        if (__instance.castProgress > 0.25f &&  __instance.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Cluster_Shroom_Eat_2"))
+        if (emoteName == "A_Scout_Land")
         {
-            __instance.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Cluster_Shroom_Eat_2");
-        }       
-        if (__instance.castProgress > 0.75f &&  __instance.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Cluster_Shroom_Eat_3"))
-        {
-            __instance.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Cluster_Shroom_Eat_3");
+            PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Cluster Shroom");
         }
     }
 
-    public override void CancelUsed(Item __instance)
+    public override void AnimationTick()
     {
-        __instance.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal("Cluster Shroom");
+        if (PlayRemoveAnimationPatch.anim == "A_Scout_Use_Item")
+        {
+            float progress = 1f / (1.2f / PlayRemoveAnimationPatch.animTime);
+            if (progress > 0.25f &&  PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Cluster_Shroom_Eat_2"))
+            {
+                PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Cluster_Shroom_Eat_2");
+            }       
+            if (progress > 0.75f &&  PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh != MeshRegistry.Get("Cluster_Shroom_Eat_3"))
+            {
+                PlayRemoveAnimationPatch.item?.transform.Find("Mushroom Cluster").GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get("Cluster_Shroom_Eat_3");
+            }
+        }
     }
 }

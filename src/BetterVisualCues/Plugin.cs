@@ -41,6 +41,15 @@ public partial class Plugin : BaseUnityPlugin
         _harmony.PatchAll(Assembly.GetExecutingAssembly());
         Log.LogInfo($"Plugin {Name} is loaded!");
     }
+
+    void Update()
+    {
+        if (PlayRemoveAnimationPatch.countAnimTime)
+        {
+            PlayRemoveAnimationPatch.animTime += Time.deltaTime;
+            PlayRemoveAnimationPatch.itemPatch.AnimationTick();
+        }
+    }
     
 
     void OnDestroy()

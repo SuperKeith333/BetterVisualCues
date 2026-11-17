@@ -11,6 +11,12 @@ static class ItemStopUsedPatch
 {
     static void Prefix(Item __instance)
     {
+        if (GUIManager.InPauseMenu)
+            return;
+
+        if (!__instance.holderCharacter.IsLocal)
+            return;
+
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         ItemPatch? patch = assembly.GetTypes()

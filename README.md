@@ -2,13 +2,14 @@
 
 BetterVisualCues is a visual enhancement mod for PEAK animations for tem usage through model switching.
 I AM NOT AN ANIMATOR, this is the best I could do without adding new fully fleshed out animations
-EXPECT BUGS, this has not been tested in multiplayer
+EXPECT BUGS, this is a very early version of the mod
 
 ## Features
 
 ### Currently implemented
 - Food usage animations.
 - Anti-Zooka visual animation. (Other items besides food will come in the future)
+- Networked Animations (Not feeding others, others with the mod will see the animations)
 
 ### Supported Items
 

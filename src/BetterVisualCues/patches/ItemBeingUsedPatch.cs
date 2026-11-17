@@ -10,6 +10,11 @@ static class ItemBeingUsedPatch
 {
     static void Prefix(Item __instance)
     {
+        if (GUIManager.InPauseMenu)
+            return;
+        if (!__instance.holderCharacter.IsLocal)
+            return;
+
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         ItemPatch? patch = assembly.GetTypes()
@@ -20,7 +25,7 @@ static class ItemBeingUsedPatch
 
         
 
-        if (__instance.isUsingPrimary && __instance.usingTimePrimary > 0f) {
+        if (__instance.isUsingPrimary && __instance.castProgress > 0.1f) {
             if (patch != null)
                 patch.BeingUsed(__instance);
         }
