@@ -27,4 +27,9 @@ public static class MaterialRegistry
         BetterVisualCues.Plugin.Log.LogWarning("Material not found: " + name);
         return null;
     }
+
+    public static void Unload()
+    {
+        materials.Clear();
+    }
 }

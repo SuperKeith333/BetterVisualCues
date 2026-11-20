@@ -44,18 +44,16 @@ public partial class Plugin : BaseUnityPlugin
 
     void Update()
     {
-        if (PlayRemoveAnimationPatch.countAnimTime)
-        {
-            PlayRemoveAnimationPatch.animTime += Time.deltaTime;
-            PlayRemoveAnimationPatch.itemPatch.AnimationTick();
-        }
+
     }
     
 
     void OnDestroy()
     {
-        MeshRegistry.Unload();
         _harmony.UnpatchSelf();
+        MeshRegistry.Unload();
+        AnimationHandler.Unload();
+        MaterialRegistry.Unload();
         Log.LogInfo($"Plugin {Name} unloaded!");
     }
 }
