@@ -5,6 +5,24 @@
     },
     "ThirdPersonUseAnim": "A_Scout_Use_Item",
     "CodeOverride": "Cure-All",
+    "UseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 330, "Y": 180, "Z": 90}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 0, "Z": -0.25}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 78.53, "Z": 0}
+        },
+        {
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 0, "Z": 0.18}
+        }
+    ],
     "SecondaryUseAnimation": [
         {
             "Time": 0,

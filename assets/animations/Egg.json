@@ -1,0 +1,43 @@
+{
+    "ItemName": "Egg(",
+    "Objects": {
+        "MainMesh": "Egg_SunnySideUp"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Egg_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Egg_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Egg_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Egg_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ]
+}
