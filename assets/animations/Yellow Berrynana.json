@@ -1,0 +1,115 @@
+{
+    "ItemName": "Berrynana Yellow",
+    "Objects": {
+        "MainMesh": "Bananna Berry (1)",
+        "Leaves": "Bananna Berry (1)/Leaves.002"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "LoadMaterials": [
+        {
+            "LoadMaterial": {"Item": "Berrynana Peel Yellow", "Material": "M_Banana_Inside"}
+        },
+        {
+            "LoadMaterial": {"Item": "Berrynana Peel Yellow", "Material": "M_Banana"}
+        }
+    ],
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.50,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Berrynana_Eat_2"}
+        },
+        {
+            "Time": 0.50,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_Banana_Inside"}
+        },
+        {
+            "Time": 0.50,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 1, "Material": "M_Banana_Inside"}
+        },
+        {
+            "Time": 0.50,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 2, "Material": "M_Banana"}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectPosition": {"Object": "MainMesh", "X": -0.046, "Y": -0.149, "Z": -0.022}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectPosition": {"Object": "Leaves", "X": -0.0265, "Y": -0.0117, "Z": 0.1}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetObjectPosition": {"Object": "Leaves", "X": -0.0265, "Y": -0.0117, "Z": 0}
+        },
+        {
+            "SetObjectPosition": {"Object": "MainMesh", "X": -0.046, "Y": -0.049, "Z": -0.022}
+        },
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "ClearMaterials": {"Object": "MainMesh"}
+        },
+        {
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_Banana"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 350.495, "Y": 180, "Z": 161.88}
+        },
+        {
+            "Time": 0.50,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Berrynana_Eat_2"}
+        },
+        {
+            "Time": 0.50,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_Banana_Inside"}
+        },
+        {
+            "Time": 0.50,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 1, "Material": "M_Banana_Inside"}
+        },
+        {
+            "Time": 0.50,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 2, "Material": "M_Banana"}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectPosition": {"Object": "MainMesh", "X": -0.046, "Y": -0.149, "Z": -0.022}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectPosition": {"Object": "Leaves", "X": -0.0265, "Y": -0.0117, "Z": 0.1}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetObjectPosition": {"Object": "Leaves", "X": -0.0265, "Y": -0.0117, "Z": 0}
+        },
+        {
+            "SetObjectPosition": {"Object": "MainMesh", "X": -0.046, "Y": -0.049, "Z": -0.022}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 310.495, "Y": 270, "Z": 161.88}
+        },
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "ClearMaterials": {"Object": "MainMesh"}
+        },
+        {
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_Banana"}
+        }
+    ]
+}

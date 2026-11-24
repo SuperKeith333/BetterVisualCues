@@ -1,0 +1,50 @@
+{
+    "ItemName": "AloeVera",
+    "Objects": {
+        "MainMesh": "AloeVera"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Aloevera_Use_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Aloevera_Use_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 310, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Aloevera_Use_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Aloevera_Use_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 279.5215, "Y": 51.1274, "Z": 306.7646}
+        }
+    ]
+}

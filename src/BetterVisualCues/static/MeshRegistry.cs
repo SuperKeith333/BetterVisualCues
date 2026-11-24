@@ -18,7 +18,7 @@ public static class MeshRegistry
     {
         if (loaded) return;
 
-        string path = FindBundle("meshes");
+        string path = FindBundle("assets/meshes");
         if (path == null) { Plugin.Log.LogError("Bundle not found: meshes"); return; }
 
         foreach (var b in AssetBundle.GetAllLoadedAssetBundles())

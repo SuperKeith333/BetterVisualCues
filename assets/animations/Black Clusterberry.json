@@ -1,0 +1,42 @@
+{
+    "ItemName": "Clusterberry Black",
+    "Objects": {
+        "MainMesh": "Cluster Berry (1)"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.50,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "ClusterBerry_Eat_2"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": { "Object": "MainMesh", "X": 325, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.50,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "ClusterBerry_Eat_2"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": { "Object": "MainMesh", "X": 270, "Y": 0, "Z": 0}
+        }
+    ]
+}

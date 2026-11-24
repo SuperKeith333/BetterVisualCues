@@ -30,11 +30,7 @@ public static class jsonLoader
             {
                 string jsonContent = File.ReadAllText(filePath);
                 
-                // Option A: Using Unity's built-in JsonUtility (requires [Serializable] fields)
                 Animation data = JsonConvert.DeserializeObject<Animation>(jsonContent);
-                
-                // Option B: Using Newtonsoft.Json (if referenced in your project)
-                // ItemData data = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemData>(jsonContent);
                 if (data != null)
                 {
                     animations.Add(data);

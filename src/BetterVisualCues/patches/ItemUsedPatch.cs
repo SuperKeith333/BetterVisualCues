@@ -21,7 +21,7 @@ static class ItemUsedPatch
             .Cast<ItemPatch>()
             .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
 
-        if (patch != null)
-            patch.UsedFinished(__instance);
+        if (AnimationHandler.IsItemSupported(__instance.name))
+            AnimationHandler.FinishedUse(__instance.name, __instance);
     }
 }

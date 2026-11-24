@@ -1,0 +1,19 @@
+{
+    "ItemName": "Cure-All",
+    "Objects": {
+        "MainMesh": "Jug"
+    },
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "CodeOverride": "Cure-All",
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 315, "Y": 0, "Z": 0}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 78.53, "Z": 0}
+        }
+    ]
+}

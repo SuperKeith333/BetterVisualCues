@@ -1,0 +1,52 @@
+{
+    "ItemName": "BalloonBunch",
+    "Objects": {
+        "Ballon1": "Balloon/Balloon (1)",
+        "Ballon2": "Balloon/Balloon (2)",
+        "MainBunch": "Balloon"
+    },
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "UseAnimation": [
+        {
+            "Time": 0.50,
+            "SetObjectActive": {"Object": "Ballon1", "Enabled": false}
+        },
+        {
+            "Time": 0.75,
+            "SetObjectActive": {"Object": "Ballon2", "Enabled": false}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetObjectActive": {"Object": "Ballon1", "Enabled": true}
+        },
+        {
+            "SetObjectActive": {"Object": "Ballon2", "Enabled": true}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainBunch", "X": 315, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectActive": {"Object": "Ballon1", "Enabled": false}
+        },
+        {
+            "Time": 0.75,
+            "SetObjectActive": {"Object": "Ballon2", "Enabled": false}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetObjectActive": {"Object": "Ballon1", "Enabled": true}
+        },
+        {
+            "SetObjectActive": {"Object": "Ballon2", "Enabled": true}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainBunch", "X": 270, "Y": 240, "Z": 0}
+        }
+    ]
+}

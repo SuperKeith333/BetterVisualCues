@@ -14,20 +14,12 @@ static class ItemBeingUsedPatch
             return;
         if (!__instance.holderCharacter.IsLocal)
             return;
-
-        Assembly assembly = Assembly.GetExecutingAssembly();
-
-        ItemPatch? patch = assembly.GetTypes()
-            .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(ItemPatch)))
-            .Select(type => Activator.CreateInstance(type))
-            .Cast<ItemPatch>()
-            .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
-
         
 
-        if (__instance.isUsingPrimary && __instance.castProgress > 0.1f) {
-            if (patch != null)
-                patch.BeingUsed(__instance);
+        if (__instance.isUsingPrimary && __instance.castProgress > 0.01f) {
+            if (AnimationHandler.IsItemSupported(__instance.name)) {
+                AnimationHandler.PlayUsingAnimation(__instance.name, __instance, __instance.castProgress);
+            }
         }
     }
 }

@@ -25,7 +25,9 @@ static class ItemStopUsedPatch
             .Cast<ItemPatch>()
             .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
 
-        if (patch != null)
-            patch.CancelUsed(__instance);
+        if (AnimationHandler.IsItemSupported(__instance.name) && __instance.castProgress > 0.01f) {
+            AnimationHandler.CancelAnimation(__instance.name, __instance);
+        }
+        
     }
 }

@@ -38,12 +38,12 @@ static class PlayRemoveAnimationPatch
             anim = "";
         }
 
-        if (patch != null) {
-            item = __instance.character.data.currentItem;
-            itemPatch = patch;
-            anim = emoteName;
-            patch.AnimationUpdated(emoteName, __instance);
-        }
+        // if (patch != null) {
+        //     item = __instance.character.data.currentItem;
+        //     itemPatch = patch;
+        //     anim = emoteName;
+        //     patch.AnimationUpdated(emoteName, __instance);
+        // }
         
     }
 }

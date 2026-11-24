@@ -19,8 +19,8 @@ static class ItemUpdatePatch
             .Cast<ItemPatch>()
             .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
 
-        if (patch != null)
-            patch.ItemDataUpdate(instanceData, __instance);
+        if (AnimationHandler.IsItemSupported(__instance.name))
+            AnimationHandler.ItemDataUpdated(__instance.name, instanceData, __instance);
         
     }
 }

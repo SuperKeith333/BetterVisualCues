@@ -22,7 +22,7 @@ static class ItemStopUsedSecondaryPatch
             .Cast<ItemPatch>()
             .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
 
-        if (patch != null)
-            patch.CancelUsed(__instance);
+        if (__instance.isUsingSecondary && AnimationHandler.IsItemSupported(__instance.name))
+            AnimationHandler.CancelSecondaryAnimation(__instance.name, __instance);
     }
 }

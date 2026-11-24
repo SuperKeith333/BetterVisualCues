@@ -1,0 +1,76 @@
+{
+    "ItemName": "Airplane Food",
+    "Objects": {
+        "MainMesh": "airplane food (1)",
+        "Plastic": "airplane food (1)/plastic"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetObjectActive": {"Object": "Plastic", "Enabled": false}
+        },
+        {
+            "Time": 0.50,
+            "SetMesh": {"Object": "MainMesh", "Mesh": "Airlinefood_Eat_2"}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270.41, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": {"Object": "MainMesh", "Mesh": "Airlinefood_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectActive": {"Object": "Plastic", "Enabled": true}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 323.41, "Y": 180, "Z": 90}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 323.41, "Y": 0, "Z": 90}
+        },
+        {
+            "Time": 0.25,
+            "SetObjectActive": {"Object": "Plastic", "Enabled": false}
+        },
+        {
+            "Time": 0.50,
+            "SetMesh": {"Object": "MainMesh", "Mesh": "Airlinefood_Eat_2"}
+        },
+        {
+            "Time": 0.50,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270.41, "Y": 90, "Z": 90}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": {"Object": "MainMesh", "Mesh": "Airlinefood_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectActive": {"Object": "Plastic", "Enabled": true}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 323.41, "Y": 180, "Z": 90}
+        }
+    ]
+}

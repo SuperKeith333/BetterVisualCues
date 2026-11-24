@@ -1,0 +1,50 @@
+{
+    "ItemName": "EggTurkey",
+    "Objects": {
+        "MainMesh": "Chicken"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Chicken_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Chicken_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 286, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Chicken_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Chicken_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 285, "Y": 0, "Z": 180}
+        }
+    ]
+}

@@ -18,8 +18,10 @@ static class ItemCreatedPatch
             .Select(type => Activator.CreateInstance(type))
             .Cast<ItemPatch>()
             .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
-
-        if (patch != null)
-            patch.Created(__instance);
+            
+        if (AnimationHandler.IsItemSupported(__instance.name)) {
+            AnimationHandler.ItemCreated(__instance.name, __instance);
+        }
+        
     }
 }

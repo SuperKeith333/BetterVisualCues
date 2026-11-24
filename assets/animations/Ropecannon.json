@@ -1,0 +1,170 @@
+{
+    "ItemName": "RopeShooter",
+    "Objects": {
+        "MainMesh": "RopeCannon",
+        "Head": "HideOnFire"
+    },
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "UseAnimation": [
+        {
+            "Time": 0.05,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.1,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.15,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.2,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.25,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.3,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.35,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.40,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.45,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.5,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.55,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.6,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.65,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.7,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.75,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.8,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.85,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.9,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.95,
+            "SetRandomPosition": { "Object": "MainMesh", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.05,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.1,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.15,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.2,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.25,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.3,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.35,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.40,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.45,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.5,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.55,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.6,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.65,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.7,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.75,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.8,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.85,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.9,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        },
+        {
+            "Time": 0.95,
+            "SetRandomPosition": { "Object": "Head", "MaxOffset": 0.01}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 0.179, "Z": 0.461}
+        },
+        {
+            "SetObjectPosition": {"Object": "Head", "X": 0, "Y": 0, "Z": 0}
+        }
+    ]
+}

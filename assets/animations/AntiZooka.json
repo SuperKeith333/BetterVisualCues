@@ -1,0 +1,14 @@
+{
+    "ItemName": "AntiZooka",
+    "Objects": {
+        "MainMesh": "Anti-Zooka",
+        "AntiSphere": "Anti-Zooka/Shell/AntiSphere"
+    },
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "CodeOverride": "Anti-Zooka",
+    "Created": [
+        {
+            "SetMesh": {"Object": "MainMesh", "Mesh": "Anti_Zooka_New"}
+        }
+    ]
+}

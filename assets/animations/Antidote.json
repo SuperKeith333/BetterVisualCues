@@ -1,0 +1,49 @@
+{
+    "ItemName": "Antidote",
+    "Objects": {
+        "MainMesh": "Mesh"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item_Drink",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.05,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Antidote_Drink_2"}
+        },
+        {
+            "Time": 0.15,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 330, "Y": 180, "Z": 180}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 262.81, "Z": 0}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0.05,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Antidote_Drink_2"}
+        },
+        {
+            "Time": 0.15,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 315, "Y": 0, "Z": 0}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 262.81, "Z": 0}
+        }
+    ]
+}

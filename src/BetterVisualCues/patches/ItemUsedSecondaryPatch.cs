@@ -23,9 +23,9 @@ static class ItemSecondaryBeingUsedPatch
 
         
 
-        if (__instance.isUsingSecondary && __instance.usingTimePrimary > 0f) {
-            if (patch != null)
-                patch.SecondaryBeingUsed(__instance);
+        if (__instance.isUsingSecondary && __instance.usingTimePrimary > 0.01f) {
+            if (AnimationHandler.IsItemSupported(__instance.name))
+                AnimationHandler.PlaySecondaryUsingAnimation(__instance.name, __instance, __instance.castProgress);
         }
     }
 }
