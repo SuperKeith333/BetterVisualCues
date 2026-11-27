@@ -81,6 +81,7 @@ public partial class Plugin : BaseUnityPlugin
         {
             if (item != null && AnimationHandler.IsItemSupported(item.name)) {
                 AnimationHandler.PlayUsingAnimation(item.name, item, progress);
+
             }
         }
 
@@ -108,7 +109,6 @@ public partial class Plugin : BaseUnityPlugin
 
     private void OnEvent(string sender, VisualCueEventType eventType, string json)
     {
-        Plugin.Log.LogInfo("Event Recived: " + eventType + " from sender: " + sender + " with payload: " + json);
         var player = PlayerHandler.GetPlayerCharacter(PhotonNetwork.PlayerList.FirstOrDefault(p => p.NickName == sender));
         AnimationData? animData = JsonConvert.DeserializeObject<AnimationData>(json);
 

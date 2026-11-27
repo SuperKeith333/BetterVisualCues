@@ -137,7 +137,8 @@ public static class AnimationHandler
                 codeOverrides[animation.CodeOverride].UsedFinished(ItemName, item);
         }
 
-        SteamComms.SendEvent(VisualCueEventType.CANCEL_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
+        if (item.holderCharacter.IsLocal)
+            SteamComms.SendEvent(VisualCueEventType.CANCEL_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
         playingAnimation = false;
     }
 
@@ -163,7 +164,8 @@ public static class AnimationHandler
                 codeOverrides[animation.CodeOverride].SecondaryUsedFinished(ItemName, item);
         }
 
-        SteamComms.SendEvent(VisualCueEventType.CANCEL_SECONDARY_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
+        if (item.holderCharacter.IsLocal)
+            SteamComms.SendEvent(VisualCueEventType.CANCEL_SECONDARY_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
         playingAnimation = false;
     }
 
@@ -229,7 +231,7 @@ public static class AnimationHandler
             }
         }
 
-        if (!playingAnimation) {
+        if (!playingAnimation && item.holderCharacter.IsLocal) {
             var animData = new AnimationData
             {
                 ThirdPersonUseAnim = animation.ThirdPersonUseAnim
@@ -302,7 +304,7 @@ public static class AnimationHandler
             }
         }
 
-        if (!playingAnimation) {
+        if (!playingAnimation && item.holderCharacter.IsLocal) {
             var animData = new AnimationData
             {
                 ThirdPersonUseAnim = animation.ThirdPersonUseAnim
@@ -387,7 +389,8 @@ public static class AnimationHandler
                 codeOverrides[animation.CodeOverride].UseCanceled(ItemName, item);
         }
 
-        SteamComms.SendEvent(VisualCueEventType.CANCEL_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
+        if (item.holderCharacter.IsLocal)
+            SteamComms.SendEvent(VisualCueEventType.CANCEL_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
         playingAnimation = false;
     }
 
@@ -459,7 +462,8 @@ public static class AnimationHandler
             }
         }
 
-        SteamComms.SendEvent(VisualCueEventType.CANCEL_SECONDARY_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
+        if (item.holderCharacter.IsLocal)
+            SteamComms.SendEvent(VisualCueEventType.CANCEL_SECONDARY_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
         playingAnimation = false;
     }
 
