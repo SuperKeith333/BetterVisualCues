@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using BepInEx;
+using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using Newtonsoft.Json;
@@ -31,6 +32,7 @@ public partial class Plugin : BaseUnityPlugin
     private readonly Harmony _harmony = new (Id);
     private Dictionary<Item, float> ItemAnimationsToPlay = [];
     private Dictionary<Item, float> SecondaryItemAnimationsToPlay = [];
+    private ConfigEntry<KeyCode> reloadKey;
 
     private void Awake()
     {
@@ -38,7 +40,14 @@ public partial class Plugin : BaseUnityPlugin
         // See https://lethal.wiki/dev/fundamentals/logging
         Log = Logger;
 
-        MeshRegistry.Init();
+        reloadKey = Config.Bind(
+            "General",
+            "Reload Animations Keybind",
+            KeyCode.End,
+            "Reloads the Animations json files as well as any registered asset bundles"
+        );
+
+        MeshRegistry.LoadMeshes("assets/meshes");
 
         // MaterialRegistry.loadMaterialFromItem("Berrynana Peel Pink Variant", "M_BananaPink_Inside");
         // MaterialRegistry.loadMaterialFromItem("Berrynana Peel Brown Variant", "M_BananaBrown_Inside");
@@ -46,6 +55,7 @@ public partial class Plugin : BaseUnityPlugin
         AnimationHandler.Init();
         AnimationHandler.registerCodeOverride("Anti-Zooka", new AntiZookaCodeOverride());
         AnimationHandler.registerCodeOverride("Cure-All", new CureAllCodeOverride());
+        AnimationHandler.registerCodeOverride("RopeCannon", new RopeCannonCodeOverride());
 
         SteamComms.Init(OnEvent);
 
@@ -69,29 +79,31 @@ public partial class Plugin : BaseUnityPlugin
 
         foreach (var (item, progress) in ItemAnimationsToPlay)
         {
-            if (item != null) {
+            if (item != null && AnimationHandler.IsItemSupported(item.name)) {
                 AnimationHandler.PlayUsingAnimation(item.name, item, progress);
             }
         }
 
         foreach (var (item, progress) in SecondaryItemAnimationsToPlay)
         {
-            if (item != null) {
+            if (item != null && AnimationHandler.IsItemSupported(item.name)) {
                 AnimationHandler.PlaySecondaryUsingAnimation(item.name, item, progress);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.End))
+        if (Input.GetKeyDown(reloadKey.Value))
         {
             MeshRegistry.Unload();
             AnimationHandler.Unload();
             MaterialRegistry.Unload();
 
-            MeshRegistry.Init();
+            MeshRegistry.reloadMeshes();
             // MaterialRegistry.loadMaterialFromItem("Berrynana Peel Pink Variant", "M_BananaPink_Inside");
             // MaterialRegistry.loadMaterialFromItem("Berrynana Peel Brown Variant", "M_BananaBrown_Inside");
             AnimationHandler.Init();
-        }
+        }        
+        
+
     }
 
     private void OnEvent(string sender, VisualCueEventType eventType, string json)
@@ -120,7 +132,8 @@ public partial class Plugin : BaseUnityPlugin
                 if (animData != null)
                     player.refs.animator.Play("A_Scout_Land", 0, 0);
                 
-                AnimationHandler.CancelAnimation(player.data.currentItem.name, player.data.currentItem);
+                if (AnimationHandler.IsItemSupported(player.data.currentItem.name))
+                    AnimationHandler.CancelAnimation(player.data.currentItem.name, player.data.currentItem);
                 break;
             case VisualCueEventType.PLAY_SECONDARY_USE_ANIM:
                 if (player.data.currentItem == null)
@@ -138,7 +151,8 @@ public partial class Plugin : BaseUnityPlugin
                 if (animData != null)
                     player.refs.animator.Play("A_Scout_Land", 0, 0);
                 
-                AnimationHandler.CancelSecondaryAnimation(player.data.currentItem.name, player.data.currentItem);
+                if (AnimationHandler.IsItemSupported(player.data.currentItem.name))
+                    AnimationHandler.CancelSecondaryAnimation(player.data.currentItem.name, player.data.currentItem);
                 break;
         }
     }

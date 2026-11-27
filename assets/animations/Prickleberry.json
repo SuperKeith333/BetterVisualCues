@@ -1,0 +1,50 @@
+{
+    "ItemName": "Prickleberry",
+    "Objects": {
+        "MainMesh": "Prickleberry (3)"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Prickleberry_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Prickleberry_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 310, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Prickleberry_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Prickleberry_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 0, "Z": 0}
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "ItemName": "Item_Honeycomb",
+    "Objects": {
+        "MainMesh": "Honeycomb",
+        "Honey": "Honeycomb/Honey"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetOriginalMesh": {"Object": "Honey", "Tag": "Honey"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Honeycomb_Eat_2"}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "Honey", "Mesh": "Honey_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Honeycomb_Eat_3"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "Honey", "Mesh": "Honey_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetOriginalMesh": {"Object": "Honey", "Tag": "Honey"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Honeycomb_Eat_2"}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "Honey", "Mesh": "Honey_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Honeycomb_Eat_3"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "Honey", "Mesh": "Honey_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetOriginalMesh": {"Object": "Honey", "Tag": "Honey"}
+        }
+    ]
+}

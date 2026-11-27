@@ -1,0 +1,67 @@
+{
+    "ItemName": "Granola Bar",
+    "Objects": {
+        "MainMesh": "GranolaBar"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 20, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 0, "Z": 0.041}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Granola_Bar_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Granola_Bar_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 90, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 0.096, "Z": 0.041}
+        },
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 50, "Y": 180, "Z": 180}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Granola_Bar_Eat_2"}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Granola_Bar_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 90, "Y": 0, "Z": 0}
+        }
+    ]
+}

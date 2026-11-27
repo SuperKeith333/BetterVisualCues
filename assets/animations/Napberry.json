@@ -1,0 +1,65 @@
+{
+    "ItemName": "Napberry",
+    "Objects": {
+        "MainMesh": "Fruit",
+        "Leaves": "Fruit/Leaves"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Napberry_Eat_2"}
+        },
+        {
+            "Time": 0.25,
+            "SetObjectActive": { "Object": "Leaves", "Enabled": false}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Napberry_Eat_3"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectActive": { "Object": "Leaves", "Enabled": true}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 350, "Z": 0}
+        },
+        {
+            "Time": 0.25,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Napberry_Eat_2"}
+        },
+        {
+            "Time": 0.25,
+            "SetObjectActive": { "Object": "Leaves", "Enabled": false}
+        },
+        {
+            "Time": 0.75,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Napberry_Eat_3"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 298.46, "Y": 90, "Z": 180}
+        },
+        {
+            "SetObjectActive": { "Object": "Leaves", "Enabled": true}
+        }
+    ]
+}

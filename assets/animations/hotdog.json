@@ -1,0 +1,42 @@
+{
+    "ItemName": "Glizzy(",
+    "Objects": {
+        "MainMesh": "Marshmallow2"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Hotdog_Eat_2"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 330, "Y": 350, "Z": 0}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Hotdog_Eat_2"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 292.6493, "Y": 82.5521, "Z": 356.8824}
+        }
+    ]
+}

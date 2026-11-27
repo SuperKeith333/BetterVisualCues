@@ -1,0 +1,42 @@
+{
+    "ItemName": "Pepper Berry",
+    "Objects": {
+        "MainMesh": "Pepper Berry"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Scorchberry_Eat_2"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 0, "Y": 180, "Z": 0}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Scorchberry_Eat_2"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 288.2726, "Y": 2.3523, "Z": 263.9562}
+        }
+    ]
+}

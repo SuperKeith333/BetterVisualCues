@@ -14,14 +14,6 @@ static class ItemStopUsedSecondaryPatch
         if (!__instance.holderCharacter.IsLocal)
             return;
 
-        Assembly assembly = Assembly.GetExecutingAssembly();
-
-        ItemPatch? patch = assembly.GetTypes()
-            .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(ItemPatch)))
-            .Select(type => Activator.CreateInstance(type))
-            .Cast<ItemPatch>()
-            .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
-
         if (__instance.isUsingSecondary && AnimationHandler.IsItemSupported(__instance.name))
             AnimationHandler.CancelSecondaryAnimation(__instance.name, __instance);
     }

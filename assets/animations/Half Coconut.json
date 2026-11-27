@@ -1,0 +1,42 @@
+{
+    "ItemName": "Item_Coconut_half",
+    "Objects": {
+        "MainMesh": "Coconut/Mesh_CoconutGreen Half"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Half_Coconut_Eat_2"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 45, "Y": 170, "Z": 220}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Half_Coconut_Eat_2"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 70.7107, "Y": 264.3545, "Z": 60.767}
+        }
+    ]
+}

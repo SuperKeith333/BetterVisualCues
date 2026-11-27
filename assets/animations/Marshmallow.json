@@ -1,0 +1,49 @@
+{
+    "ItemName": "Marshmallow",
+    "Objects": {
+        "MainMesh": "Marshmallow (1)"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Marshmallow_Eat_2"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0.065, "Y": 0, "Z": 0.035}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 0, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Marshmallow_Eat_2"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0.065, "Y": 0.198, "Z": 0.035}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 292.6493, "Y": 82.552, "Z": 356.8824}
+        }
+    ]
+}

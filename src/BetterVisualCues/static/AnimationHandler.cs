@@ -66,12 +66,46 @@ public static class AnimationHandler
         if (animation.Created != null) {
             foreach (AnimationStep step in animation.Created) {
                 if (step.SetOriginalMesh != null) {
-                    if (MeshRegistry.GetOriginal(animation.ItemName) == null)
-                        MeshRegistry.SetOriginal(animation.ItemName, item.transform.Find(animation.Objects[step.SetOriginalMesh.Object]).GetComponent<MeshFilter>().sharedMesh);
+                    string name = animation.ItemName;
+                    if (step.SetOriginalMesh.Tag != null)
+                        name = step.SetOriginalMesh.Tag;
+                    if (MeshRegistry.GetOriginal(name) == null) {
+                        MeshRegistry.SetOriginal(name, item.transform.Find(animation.Objects[step.SetOriginalMesh.Object]).GetComponent<MeshFilter>().sharedMesh);
+                        
+                    }
+                }
+
+                if (step.SetOriginalSkinnedMesh != null) {
+                    string name = animation.ItemName;
+                    if (step.SetOriginalSkinnedMesh.Tag != null)
+                        name = step.SetOriginalSkinnedMesh.Tag;
+                    if (MeshRegistry.GetOriginal(name) == null) {
+                        MeshRegistry.SetOriginal(name, item.transform.Find(animation.Objects[step.SetOriginalSkinnedMesh.Object]).GetComponent<SkinnedMeshRenderer>().sharedMesh);
+                        
+                    }
                 }
 
                 if (step.SetMesh != null)
                     item.transform.Find(animation.Objects[step.SetMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get(step.SetMesh.Mesh);
+            
+                if (step.SetMaterialSlot != null)
+                {
+                    List<Material?> materials = [];
+
+                    foreach (Material mat in item.transform.Find(animation.Objects[step.SetMaterialSlot.Object]).GetComponent<MeshRenderer>().sharedMaterials)
+                    {
+                        materials.Add(mat);
+                    }
+
+                    while (materials.Count - 1 < step.SetMaterialSlot.Slot)
+                    {
+                        materials.Add(null);
+                    }
+
+                    materials[step.SetMaterialSlot.Slot] = MaterialRegistry.GetMaterial(step.SetMaterialSlot.Material);
+
+                    item.transform.Find(animation.Objects[step.SetMaterialSlot.Object]).GetComponent<MeshRenderer>().sharedMaterials = materials.ToArray();
+                }
             }
         }
 
@@ -156,6 +190,9 @@ public static class AnimationHandler
                 if (step.SetMesh != null)
                     item.transform.Find(animation.Objects[step.SetMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get(step.SetMesh.Mesh);
 
+                if (step.SetSkinnedMesh != null)
+                    item.transform.Find(animation.Objects[step.SetSkinnedMesh.Object]).GetComponent<SkinnedMeshRenderer>().sharedMesh = MeshRegistry.Get(step.SetSkinnedMesh.Mesh);
+
                 if (step.SetObjectActive != null)
                     item.transform.Find(animation.Objects[step.SetObjectActive.Object]).gameObject.SetActive(step.SetObjectActive.Enabled);
                 
@@ -200,6 +237,12 @@ public static class AnimationHandler
             SteamComms.SendEvent(VisualCueEventType.PLAY_USE_ANIM, JsonConvert.SerializeObject(animData), Photon.Realtime.ReceiverGroup.Others);
         }
 
+        if (animation.CodeOverride != null)
+        {
+            if (codeOverrides.ContainsKey(animation.CodeOverride))
+                codeOverrides[animation.CodeOverride].BeingUsed(ItemName, item, progress);
+        }
+
         playingAnimation = true;
     }
 
@@ -225,6 +268,9 @@ public static class AnimationHandler
                     continue;
                 if (step.SetMesh != null)
                     item.transform.Find(animation.Objects[step.SetMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.Get(step.SetMesh.Mesh);
+
+                if (step.SetSkinnedMesh != null)
+                    item.transform.Find(animation.Objects[step.SetSkinnedMesh.Object]).GetComponent<SkinnedMeshRenderer>().sharedMesh = MeshRegistry.Get(step.SetSkinnedMesh.Mesh);
 
                 if (step.SetObjectActive != null)
                     item.transform.Find(animation.Objects[step.SetObjectActive.Object]).gameObject.SetActive(step.SetObjectActive.Enabled);
@@ -286,8 +332,21 @@ public static class AnimationHandler
         if (animation.CancelUseAnimation != null) {
             foreach (AnimationStep step in animation.CancelUseAnimation)
             {
-                if (step.SetOriginalMesh != null)
-                    item.transform.Find(animation.Objects[step.SetOriginalMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal(animation.ItemName);
+                if (step.SetOriginalMesh != null) {
+                    string name = animation.ItemName;
+                    if (step.SetOriginalMesh.Tag != null)
+                        name = step.SetOriginalMesh.Tag;
+
+                    item.transform.Find(animation.Objects[step.SetOriginalMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal(name);
+                }
+
+                if (step.SetOriginalSkinnedMesh != null) {
+                    string name = animation.ItemName;
+                    if (step.SetOriginalSkinnedMesh.Tag != null)
+                        name = step.SetOriginalSkinnedMesh.Tag;
+
+                    item.transform.Find(animation.Objects[step.SetOriginalSkinnedMesh.Object]).GetComponent<SkinnedMeshRenderer>().sharedMesh = MeshRegistry.GetOriginal(name);
+                }
                 
                 if (step.SetObjectActive != null)
                     item.transform.Find(animation.Objects[step.SetObjectActive.Object]).gameObject.SetActive(step.SetObjectActive.Enabled);
@@ -322,6 +381,12 @@ public static class AnimationHandler
             }
         }
 
+        if (animation.CodeOverride != null)
+        {
+            if (codeOverrides.ContainsKey(animation.CodeOverride))
+                codeOverrides[animation.CodeOverride].UseCanceled(ItemName, item);
+        }
+
         SteamComms.SendEvent(VisualCueEventType.CANCEL_USE_ANIM, "{}", Photon.Realtime.ReceiverGroup.Others);
         playingAnimation = false;
     }
@@ -345,8 +410,21 @@ public static class AnimationHandler
         if (animation.CancelSecondaryUseAnimation != null) {
             foreach (AnimationStep step in animation.CancelSecondaryUseAnimation)
             {
-                if (step.SetOriginalMesh != null)
-                    item.transform.Find(animation.Objects[step.SetOriginalMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal(animation.ItemName);
+                if (step.SetOriginalMesh != null) {
+                    string name = animation.ItemName;
+                    if (step.SetOriginalMesh.Tag != null)
+                        name = step.SetOriginalMesh.Tag;
+
+                    item.transform.Find(animation.Objects[step.SetOriginalMesh.Object]).GetComponent<MeshFilter>().sharedMesh = MeshRegistry.GetOriginal(name);
+                }
+
+                if (step.SetOriginalSkinnedMesh != null) {
+                    string name = animation.ItemName;
+                    if (step.SetOriginalSkinnedMesh.Tag != null)
+                        name = step.SetOriginalSkinnedMesh.Tag;
+
+                    item.transform.Find(animation.Objects[step.SetOriginalSkinnedMesh.Object]).GetComponent<SkinnedMeshRenderer>().sharedMesh = MeshRegistry.GetOriginal(name);
+                }
                 
                 if (step.SetObjectActive != null)
                     item.transform.Find(animation.Objects[step.SetObjectActive.Object]).gameObject.SetActive(step.SetObjectActive.Enabled);

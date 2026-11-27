@@ -1,0 +1,67 @@
+{
+    "ItemName": "FrogLegs",
+    "Objects": {
+        "MainMesh": "FrogLegs (1)/FrogLegsGreen"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 2.5333, "Z": -1}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 279.9999, "Y": 0, "Z": 90}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Frog_Legs_Eat_2"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 3.0333, "Z": 0}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 0, "Y": 0, "Z": 0}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 3.0333, "Z": 0}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 60, "Y": 0, "Z": 90}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Frog_Legs_Eat_2"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": {"Object": "MainMesh", "X": 0, "Y": 3.0333, "Z": 0}
+        },
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 0, "Y": 0, "Z": 0}
+        }
+    ]
+}

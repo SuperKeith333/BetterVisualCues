@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using BepInEx;
 using BetterVisualCues;
 using Newtonsoft.Json;
@@ -12,7 +13,7 @@ public static class jsonLoader
     public static List<Animation> LoadAllAnimationFiles()
     {
         var animations = new List<Animation>();
-        string targetFolder = Path.Combine(Paths.PluginPath, "assets/animations");
+        string targetFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "assets/animations");
 
         if (!Directory.Exists(targetFolder))
         {
@@ -22,7 +23,7 @@ public static class jsonLoader
         }
 
         string[] jsonFiles = Directory.GetFiles(targetFolder, "*.json", SearchOption.TopDirectoryOnly);
-
+        Plugin.Log.LogInfo(jsonFiles);
 
         foreach (string filePath in jsonFiles)
         {

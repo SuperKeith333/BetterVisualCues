@@ -10,32 +10,40 @@ public static class MeshRegistry
     static readonly Dictionary<string, Mesh> meshes = new Dictionary<string, Mesh>();
     static readonly Dictionary<string, Mesh> originals = new Dictionary<string, Mesh>();
     public static readonly Dictionary<string, Material> materials = new Dictionary<string, Material>();
-    static AssetBundle bundle;
+    static Dictionary<string, AssetBundle> bundle = new Dictionary<string, AssetBundle>();
+    static List<string> bundlePaths = new List<string>();
 
-    public static bool loaded => bundle != null;
-
-    public static void Init()
+    public static void LoadMeshes(string path)
     {
-        if (loaded) return;
 
-        string path = FindBundle("assets/meshes");
-        if (path == null) { Plugin.Log.LogError("Bundle not found: meshes"); return; }
+        if (path == null) { Plugin.Log.LogError("Bundle not found: " + path); return; }
 
-        foreach (var b in AssetBundle.GetAllLoadedAssetBundles())
-            if (b.name == "meshes") b.Unload(true);
+        Plugin.Log.LogInfo("Loading Bundle from path: " + FindBundle(path));
 
-        bundle = AssetBundle.LoadFromFile(path);
-        if (bundle == null)
+        bundle[path] = AssetBundle.LoadFromFile(FindBundle(path));
+        if (bundle[path] == null)
         {
             Plugin.Log.LogError("Failed to load mesh bundle at " + path);
             return;
         }
 
-        foreach (var mesh in bundle.LoadAllAssets<Mesh>())
+        foreach (var mesh in bundle[path].LoadAllAssets<Mesh>())
         {
             mesh.hideFlags = HideFlags.DontUnloadUnusedAsset;
             meshes[mesh.name] = mesh;
             Plugin.Log.LogInfo("Registered mesh: " + mesh.name);
+        }
+
+        bundlePaths.Add(path);
+    }
+
+    public static void reloadMeshes()
+    {
+        var paths = new List<string>(bundlePaths);
+        bundlePaths.Clear();
+        foreach (string path in paths)
+        {
+            LoadMeshes(path);
         }
     }
 
@@ -80,10 +88,12 @@ public static class MeshRegistry
             if (m != null) m.hideFlags = HideFlags.None;
         meshes.Clear();
 
-        if (bundle != null)
+        foreach (var (path, b) in bundle)
         {
-            bundle.Unload(true);
-            bundle = null;
+            if (b != null)
+                b.Unload(true);
         }
+
+        bundle.Clear();
     }
 }

@@ -1,0 +1,29 @@
+{
+    "ItemName": "Sports Drink",
+    "Objects": {
+        "MainMesh": "Mesh"
+    },
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "UseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": { "Object": "MainMesh", "X": 0, "Y": 180, "Z": 210}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 144.6615, "Z": 0}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 315, "Y": 0, "Z": 0}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270, "Y": 144.6615, "Z": 0}
+        }
+    ]
+}

@@ -18,8 +18,7 @@
   <!-- Shared Thunderstore metadata -->
   <PropertyGroup>
     <ThunderstoreTeam>superkeith</ThunderstoreTeam>
-    <!-- TODO: Add a link to your mod repository here (optional) -->
-    <RepositoryUrl></RepositoryUrl>
+    <RepositoryUrl>https://github.com/SuperKeith333/BetterVisualCues</RepositoryUrl>
   </PropertyGroup>
 
   <!-- Shared primary configuration for the project -->

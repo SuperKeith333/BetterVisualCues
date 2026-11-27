@@ -1,0 +1,44 @@
+{
+    "ItemName": "Energy Drink",
+    "Objects": {
+        "MainMesh": "EnergyDrink/Cube"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "UseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": { "Object": "MainMesh", "X": 310, "Y": 0, "Z": 90}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": { "Object": "MainMesh", "X": -0.0418, "Y": 3.3631, "Z": 0.0617}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetObjectRotation": { "Object": "MainMesh", "X": 357.865, "Y": 357.3753, "Z": 281.7517}
+        },
+        {
+            "SetObjectPosition": { "Object": "MainMesh", "X": -0.0418, "Y": 1.3631, "Z": 0.0617}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": { "Object": "MainMesh", "X": 45, "Y": 0, "Z": 90}
+        },
+        {
+            "Time": 0,
+            "SetObjectPosition": { "Object": "MainMesh", "X": -0.0418, "Y": -1.3631, "Z": 0.0617}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetObjectRotation": { "Object": "MainMesh", "X": 357.865, "Y": 357.3753, "Z": 281.7517}
+        },
+        {
+            "SetObjectPosition": { "Object": "MainMesh", "X": -0.0418, "Y": 1.3631, "Z": 0.0617}
+        }
+    ]
+}

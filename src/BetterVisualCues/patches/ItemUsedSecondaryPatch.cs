@@ -13,14 +13,6 @@ static class ItemSecondaryBeingUsedPatch
         if (!__instance.holderCharacter.IsLocal)
             return;
 
-        Assembly assembly = Assembly.GetExecutingAssembly();
-
-        ItemPatch? patch = assembly.GetTypes()
-            .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(ItemPatch)))
-            .Select(type => Activator.CreateInstance(type))
-            .Cast<ItemPatch>()
-            .FirstOrDefault(patch => __instance.name.StartsWith(patch.ItemName));
-
         
 
         if (__instance.isUsingSecondary && __instance.usingTimePrimary > 0.01f) {

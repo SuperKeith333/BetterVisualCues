@@ -1,0 +1,57 @@
+{
+    "ItemName": "Winterberry",
+    "Objects": {
+        "MainMesh": "Yuzu Berry",
+        "Leaves": "Yuzu Berry/Leaves.001"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Winterberry_Eat_2"}
+        },
+        {
+            "Time": 0.5,
+            "SetObjectActive": { "Object": "Leaves", "Enabled": false}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectActive": { "Object": "Leaves", "Enabled": true}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "Time": 0,
+            "SetObjectRotation": {"Object": "MainMesh", "X": 340, "Y": 0, "Z": 0}
+        },
+        {
+            "Time": 0.5,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Winterberry_Eat_2"}
+        },
+        {
+            "Time": 0.5,
+            "SetObjectActive": { "Object": "Leaves", "Enabled": false}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectActive": { "Object": "Leaves", "Enabled": true}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 270.0198, "Y": 0, "Z": 0}
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "ItemName": "FirstAidKit",
+    "Objects": {
+        "MainMesh": "firstaidkit"
+    },
+    "OriginalMesh": "MainMesh",
+    "ThirdPersonUseAnim": "A_Scout_Use_Item",
+    "LoadMaterials": [
+        {
+            "LoadMaterial": {"Item": "FirstAidKit", "Material": "M_FirstAid"}
+        },
+        {
+            "LoadMaterial": {"Item": "Antidote", "Material": "GlassBrown"}
+        },
+        {
+            "LoadMaterial": {"Item": "Antidote", "Material": "M_Antidote"}
+        },
+        {
+            "LoadMaterial": {"Item": "HealingPuffShroom", "Material": "M_HealFungus 1"}
+        },
+        {
+            "LoadMaterial": {"Item": "Bandages", "Material": "M_Bandages"}
+        }
+    ],
+    "Created": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        }
+    ],
+    "UseAnimation": [
+        {
+            "Time": 0.20,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_2"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_FirstAid"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 1, "Material": "GlassBrown"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 2, "Material": "M_Antidote"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 3, "Material": "M_HealFungus 1"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 4, "Material": "M_Bandages"}
+        },
+        {
+            "Time": 0.40,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_3"}
+        },
+        {
+            "Time": 0.60,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_4"}
+        },
+        {
+            "Time": 0.80,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_5"}
+        },
+        {
+            "Time": 0.80,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 1, "Material": "M_HealFungus 1"}
+        }
+    ],
+    "CancelUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "ClearMaterials": {"Object": "MainMesh"}
+        },
+        {
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_FirstAid"}
+        }
+    ],
+    "SecondaryUseAnimation": [
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 17, "Y": 180, "Z": 0}
+        },
+        {
+            "Time": 0.20,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_2"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_FirstAid"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 1, "Material": "GlassBrown"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 2, "Material": "M_Antidote"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 3, "Material": "M_HealFungus 1"}
+        },
+        {
+            "Time": 0.20,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 4, "Material": "M_Bandages"}
+        },
+        {
+            "Time": 0.40,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_3"}
+        },
+        {
+            "Time": 0.60,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_4"}
+        },
+        {
+            "Time": 0.80,
+            "SetMesh": { "Object": "MainMesh", "Mesh": "Medkit_Use_5"}
+        },
+        {
+            "Time": 0.80,
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 1, "Material": "M_HealFungus 1"}
+        }
+    ],
+    "CancelSecondaryUseAnimation": [
+        {
+            "SetOriginalMesh": {"Object": "MainMesh"}
+        },
+        {
+            "SetObjectRotation": {"Object": "MainMesh", "X": 17.4927, "Y": 0, "Z": 0}
+        },
+        {
+            "ClearMaterials": {"Object": "MainMesh"}
+        },
+        {
+            "SetMaterialSlot": {"Object": "MainMesh", "Slot": 0, "Material": "M_FirstAid"}
+        }
+    ]
+}
