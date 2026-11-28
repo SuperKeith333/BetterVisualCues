@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2]
+- Patched a vanilla bug where sound effects were continously played after an item was fully used but the use action (LMB) was still held (Pandora's Box)
+
+## [1.0.1]
+- Fixed an issue where other clients were triggering networked animations for players other than themselves
+
 ## [1.0.0]
 - Reworked Animation System to use json files
 - Reworked how materials and meshes are loaded
